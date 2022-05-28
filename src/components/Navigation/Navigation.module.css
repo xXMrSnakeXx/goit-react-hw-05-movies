@@ -1,0 +1,10 @@
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  padding-left: 35px;
+}
+.active {
+  color: #0031f9;
+}
