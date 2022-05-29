@@ -8,9 +8,9 @@ import AppBar from './components/AppBar/AppBar';
 import Loader from './components/Loader/Loader';
 import s from './App.module.css';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const MoviePage = lazy(() => import('./pages/MoviePage'));
-const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
+const HomePage = lazy(() => import('./page/HomePage'));
+const MoviePage = lazy(() => import('./page/MoviePage'));
+const MovieDetailsPage = lazy(() => import('./page/MovieDetailsPage'));
 
 export const App = () => {
   return (
