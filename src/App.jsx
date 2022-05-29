@@ -4,15 +4,13 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import AppBar from './AppBar/AppBar';
-import Loader from './Loader/Loader';
+import AppBar from './components/AppBar/AppBar';
+import Loader from './components/Loader/Loader';
 import s from './App.module.css';
 
-const HomePage = lazy(() => import('../Pages/HomePage'));
-const MoviePage = lazy(() => import('../Pages/MoviePage'));
-const MovieDetailsPage = lazy(() => import('../Pages/MovieDetailsPage'));
-const CastPage = lazy(() => import('../Pages/CastPage'));
-const ReviewsPage = lazy(() => import('../Pages/ReviewsPage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const MoviePage = lazy(() => import('./pages/MoviePage'));
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
 
 export const App = () => {
   return (
@@ -23,10 +21,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="movies" element={<MoviePage />} />
-          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<CastPage />} />
-            <Route path="reviews" element={<ReviewsPage />} />
-          </Route>
+          <Route path="movies/:movieId/*" element={<MovieDetailsPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>

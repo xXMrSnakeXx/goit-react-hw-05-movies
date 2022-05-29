@@ -17,15 +17,15 @@ const MovieListItem = ({ movie }) => {
     >
       <div className={s.item}>
         <li>
-          {poster_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-              alt={title}
-              className={s.itemImage}
-            />
-          ) : (
-            <img src={notFound} alt={title} className={s.itemImage} />
-          )}
+          <img
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                : notFound
+            }
+            alt={title}
+            className={s.itemImage}
+          />
         </li>
         <div className={s.wrapper}>
           <p className={s.title}>{title ?? name}</p>
@@ -36,7 +36,7 @@ const MovieListItem = ({ movie }) => {
 };
 MovieListItem.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.number,
+    id: PropTypes.number.isRequired,
     poster_path: PropTypes.string,
     name: PropTypes.string,
     title: PropTypes.string,

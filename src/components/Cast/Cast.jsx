@@ -9,25 +9,17 @@ const Cast = ({ cast }) => {
       <ul className={s.list}>
         {cast.map(({ id, original_name, profile_path }) => (
           <li key={id}>
-            {profile_path ? (
-              <>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${profile_path}`}
-                  alt={original_name}
-                />
-                <p>{original_name}</p>
-              </>
-            ) : (
-              <>
-                <img
-                  src={notFound}
-                  alt={original_name}
-                  width={300}
-                  height={450}
-                />
-                <p>{original_name}</p>
-              </>
-            )}
+            <img
+              src={
+                profile_path
+                  ? `https://image.tmdb.org/t/p/w300/${profile_path}`
+                  : notFound
+              }
+              width={300}
+              height={450}
+              alt={original_name}
+            />
+            <p>{original_name}</p>
           </li>
         ))}
       </ul>
@@ -37,8 +29,8 @@ const Cast = ({ cast }) => {
 Cast.propTypes = {
   cast: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
-      original_name: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      original_name: PropTypes.string.isRequired,
       profile_path: PropTypes.string,
     }).isRequired
   ),
